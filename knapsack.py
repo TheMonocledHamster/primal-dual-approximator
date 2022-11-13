@@ -57,17 +57,17 @@ def knapsack(data, ncomp, core_lim, mem_lim, lat_lim):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 6:
-        print("Usage: python knapsack.py <filename> <ncomp> <core_lim> <mem_lim> <lat_lim>")
-        sys.exit(1)
+    # if len(sys.argv) != 6:
+    #     print("Usage: python knapsack.py <filename> <ncomp> <core_lim> <mem_lim> <lat_lim>")
+    #     sys.exit(1)
     
-    fname = sys.argv[1]
-    ncomp = int(sys.argv[2])
-    rlim1 = int(sys.argv[3])
-    rlim2 = int(sys.argv[4])
-    rlim3 = int(sys.argv[5])
+    fname = "./source/approximator/data/data3.csv"
+    ncomp = 3
+    rlim1 = 16
+    rlim2 = 16
+    rlim3 = 240
 
-    knap_parse = Parser(fname, rlim1, rlim2, rlim3, ncomp)
+    knap_parse = Parser(fname, ncomp, rlim1, rlim2, rlim3)
     data = knap_parse.read_file()
     optimal, cost, exec_time = knapsack(data, ncomp, rlim1, rlim2, rlim3)
     print("time_kpd: " + str(exec_time))
